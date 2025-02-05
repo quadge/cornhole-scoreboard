@@ -1,0 +1,16 @@
+g++ cam_test.cpp
+/usr/bin/ld: /tmp/ccn28vIx.o: in function `main':
+cam_test.cpp:(.text+0x20): undefined reference to `cv::VideoCapture::VideoCapture(int, int)'
+/usr/bin/ld: cam_test.cpp:(.text+0x28): undefined reference to `cv::VideoCapture::isOpened() const'
+/usr/bin/ld: cam_test.cpp:(.text+0x6c): undefined reference to `cv::Mat::Mat()'
+/usr/bin/ld: cam_test.cpp:(.text+0x78): undefined reference to `cv::VideoCapture::operator>>(cv::Mat&)'
+/usr/bin/ld: cam_test.cpp:(.text+0x80): undefined reference to `cv::Mat::empty() const'
+/usr/bin/ld: cam_test.cpp:(.text+0xec): undefined reference to `cv::imshow(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, cv::_InputArray const&)'
+/usr/bin/ld: cam_test.cpp:(.text+0x10c): undefined reference to `cv::waitKey(int)'
+/usr/bin/ld: cam_test.cpp:(.text+0x130): undefined reference to `cv::VideoCapture::release()'
+/usr/bin/ld: cam_test.cpp:(.text+0x134): undefined reference to `cv::destroyAllWindows()'
+/usr/bin/ld: cam_test.cpp:(.text+0x140): undefined reference to `cv::Mat::~Mat()'
+/usr/bin/ld: cam_test.cpp:(.text+0x148): undefined reference to `cv::VideoCapture::~VideoCapture()'
+/usr/bin/ld: cam_test.cpp:(.text+0x184): undefined reference to `cv::Mat::~Mat()'
+/usr/bin/ld: cam_test.cpp:(.text+0x194): undefined reference to `cv::VideoCapture::~VideoCapture()'
+collect2: error: ld returned 1 exit status
