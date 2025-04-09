@@ -60,10 +60,11 @@ void app_main(void)
 
     while (1) {
 
-        if(count == 0) IN_GAME = 0;
-        else if(count == 160) IN_GAME = 1;
-        MODE = count / 40;
-
+        //if(count == 0) IN_GAME = 0;
+        //else if(count == 160) IN_GAME = 1;
+        //MODE = count / 40;
+        MODE = 4;
+        IN_GAME = 0;
         
         num = (count - 160) / 40;
 
@@ -745,7 +746,7 @@ void app_main(void)
                 bitmap_or(bitmap_m_scoreboard, bitmap_RL_RD, size);
                 bitmap_or(bitmap_m_scoreboard, bitmap_RL_RF, size);
             }
-        
+      
         }
         else {
             if(MODE == 0) {
@@ -760,10 +761,290 @@ void app_main(void)
             else if(MODE == 3) {
                 memcpy(bitmap_m_scoreboard, bitmap_board_only, 1024);
             }
+            else if(MODE == 4) {
+                memcpy(bitmap_m_scoreboard, bitmap_Game_Over, 1024);
+                    
+                //GAME OVER RED LEFT
+                if((num / 10) % 10 == 0) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_G, size);
+                }
+                else if((num / 10) % 10 == 1) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_F, size);
+                }
+                else if((num / 10) % 10 == 2) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_G, size);
+                }
+                else if((num / 10) % 10 == 3) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_G, size);
+                }
+                else if((num / 10) % 10 == 4) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_F, size);
+                }
+                else if((num / 10) % 10 == 5) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_G, size);
+                }
+                else if((num / 10) % 10 == 6) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_G, size);
+                }
+                else if((num / 10) % 10 == 7) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_F, size);
+                }
+                else if((num / 10) % 10 == 8) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_G, size);
+                }
+                else if((num / 10) % 10 == 9) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RL_F, size);
+                }
+
+                //GAME OVER RED RIGHT
+                if(num % 10 == 0) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_G, size);
+                }
+                else if(num % 10 == 1) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_F, size);
+                }
+                else if(num % 10 == 2) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_G, size);
+                }
+                else if(num % 10 == 3) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_G, size);
+                }
+                else if(num % 10 == 4) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_F, size);
+                }
+                else if(num % 10 == 5) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_G, size);
+                }
+                else if(num % 10 == 6) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_G, size);
+                }
+                else if(num % 10 == 7) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_F, size);
+                }
+                else if(num % 10 == 8) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_G, size);
+                }
+                else if(num % 10 == 9) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_RR_F, size);
+                }
+
+                //GAME OVER BLUE LEFT
+                if((num / 10) % 10 == 0) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_G, size);
+                }
+                else if((num / 10) % 10 == 1) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_F, size);
+                }
+                else if((num / 10) % 10 == 2) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_G, size);
+                }
+                else if((num / 10) % 10 == 3) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_G, size);
+                }
+                else if((num / 10) % 10 == 4) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_F, size);
+                }
+                else if((num / 10) % 10 == 5) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_G, size);
+                }
+                else if((num / 10) % 10 == 6) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_G, size);
+                }
+                else if((num / 10) % 10 == 7) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_F, size);
+                }
+                else if((num / 10) % 10 == 8) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_G, size);
+                }
+                else if((num / 10) % 10 == 9) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BL_F, size);
+                }
+
+                //GAME OVER BLUE RIGHT
+                if(num % 10 == 0) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_G, size);
+                }
+                else if(num % 10 == 1) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_F, size);
+                }
+                else if(num % 10 == 2) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_G, size);
+                }
+                else if(num % 10 == 3) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_G, size);
+                }
+                else if(num % 10 == 4) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_F, size);
+                }
+                else if(num % 10 == 5) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_G, size);
+                }
+                else if(num % 10 == 6) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_G, size);
+                }
+                else if(num % 10 == 7) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_F, size);
+                }
+                else if(num % 10 == 8) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_E, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_F, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_G, size);
+                }
+                else if(num % 10 == 9) {
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_A, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_B, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_C, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_D, size);
+                    bitmap_or(bitmap_m_scoreboard, bitmap_BR_F, size);
+                }
+            
+            }
         }
 
         HUB75E_setDisplayBuffer(bitmap_m_scoreboard);
-        HUB75E_displayBufferPixels(IN_GAME); //must call every loop
+        HUB75E_displayBufferPixels(IN_GAME, MODE); //must call every loop
 
         count += 1;
         if(count > max) count = 0;

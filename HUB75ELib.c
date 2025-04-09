@@ -87,7 +87,7 @@ void HUB75E_DisplayOFF() {
 /*Keep this running in your thread loop to get the display up running
  *
  */
-void HUB75E_displayBufferPixels(int IN_GAME) {
+void HUB75E_displayBufferPixels(int IN_GAME, int MODE) {
 
 	int upper_pixel_pointer = 0;
 	int lower_pixel_pointer = PIXELS_COUNT_IN_BYTES/2;
@@ -114,8 +114,34 @@ void HUB75E_displayBufferPixels(int IN_GAME) {
 					}
 				}
 				else {
-					HUB75E_setPin(PinGreen1, p1);
-					HUB75E_setPin(PinGreen2, p2);
+					if(MODE == 4) {
+						if(row < 13) {
+							HUB75E_setPin(PinGreen1, p1);
+							//HUB75E_setPin(PinGreen2, p2);
+							if(column < HORIZONTAL_PIXELS_IN_BYTES / 2) {
+								//HUB75E_setPin(PinRed1, p1);
+								HUB75E_setPin(PinRed2, p2);
+							}
+							else {
+								//HUB75E_setPin(PinBlue1, p1);
+								HUB75E_setPin(PinBlue2, p2);
+							}
+						}
+						else {
+							if(column < HORIZONTAL_PIXELS_IN_BYTES / 2) {
+								HUB75E_setPin(PinRed1, p1);
+								HUB75E_setPin(PinRed2, p2);
+							}
+							else {
+								HUB75E_setPin(PinBlue1, p1);
+								HUB75E_setPin(PinBlue2, p2);
+							}
+						}
+					}
+					else {
+						HUB75E_setPin(PinGreen1, p1);
+						HUB75E_setPin(PinGreen2, p2);
+					}
 				}
 
 				/*
